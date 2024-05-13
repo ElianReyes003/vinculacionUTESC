@@ -1,0 +1,147 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+  
+
+  /* Estilos generales para el header */
+  header {
+    background-color: #008080;
+    color: #dbdada;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 90px;
+    align-items: center;
+    font-family: Arial, Helvetica;
+  }
+
+  a{
+    text-decoration: none; 
+    color:inherit;
+    margin-right: 32px;
+  }
+
+  .opcns {
+    display: flex;
+    align-items: center; 
+  }
+  
+  header div a:hover {
+    color: #c7c6c6;
+  }
+  
+  header div img {
+    max-width: 70px;
+    height: auto;
+    border-radius: 50px;
+  }
+  
+  .Btn_cerrar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(252, 252, 252);
+  }
+  
+
+/* Estilos para pantallas más pequeñas (responsive) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .opcns {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .opcns a {
+    margin: 5px 0;
+    margin-right: 0;
+  }
+
+  .Btn_cerrar {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  @media (min-width: 480px) {
+    .opcns {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .opcns a {
+      margin: 0 10px; /* Añadido para espaciar los enlaces en pantallas pequeñas */
+    }
+  }
+}
+
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: rgb(0, 0, 0);
+  }
+  /* text */
+  .text_btn {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: rgb(0, 0, 0);
+    font-size: 1.0em;
+    font-weight: 600;
+    transition-duration: .3s;
+
+  }
+  /* hover effect on button width */
+  .Btn_cerrar:hover {
+    width: 180px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .Btn_cerrar:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .Btn_cerrar:hover .text_btn {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .Btn_cerrar:active {
+    transform: translate(2px ,2px);
+  }
+
+  .active {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  

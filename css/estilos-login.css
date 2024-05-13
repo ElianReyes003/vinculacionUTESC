@@ -1,0 +1,40 @@
+/* Estilos base */
+.login-container {
+    font-family: Arial, sans-serif; /* Selecciona una fuente de texto */
+    background-color: #ffffff; /* Establece el fondo en blanco */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  /* Hace que el contenedor ocupe toda la altura visible de la pantalla */
+    margin: 0; /* Elimina el margen alrededor del contenedor */
+}
+
+.login-box {
+    width: 100%; /* El formulario ocupa todo el ancho de la pantalla en pantallas pequeñas */
+    max-width: 450px; /* Establece un ancho máximo para el formulario */
+    padding: 20px; /* Agrega un espacio interior alrededor del formulario */
+    background-color: white; /* Establece un fondo blanco para el formulario */
+    border: 1px solid #0000002c;
+    border-radius: 10px; /* Redondea los bordes del formulario */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;/* Agrega una sombra ligera alrededor del formulario */
+    text-align: center;
+}
+
+.login-logo img {
+    width: 350px; /* Establece el ancho de la imagen del logo */
+    height: 100%; /* Establece la altura de la imagen del logo */
+}
+/* Media query para pantallas más pequeñas (ejemplo: teléfonos) */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 10px; /* Reduce el espacio de relleno en pantallas más pequeñas */
+    }
+    
+    .login-container{
+        padding:50px; /* Agrega espacio al contenedor principal en pantallas más pequeñas */
+    }
+    .login-logo img {
+        width: 70px; /* Reduzco el tamaño del logo en pantallas más pequeñas */
+        height: 70px;
+    }
+}

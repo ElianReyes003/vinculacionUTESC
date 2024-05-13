@@ -1,0 +1,106 @@
+.info-box{
+  background-color:#f0f0f0;
+  margin: 2% 5%;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.info-box h2{
+  text-align: center;
+}
+
+.secciones{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img_flechas{
+  width: 50px;
+  height: 100%;
+}
+
+.text_secciones{
+  font-size: 22px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.contain{
+  display: flex;
+  justify-content: space-between;
+}
+
+.subcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+}
+
+.subcontainer div{
+  margin-right: 40px;
+}
+
+.cont_carrera{
+  width: 50%;
+}
+
+.checklist{
+  list-style-type:none;
+}
+
+
+.btns_atr_cont{
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btns_atr_cont .botones{
+  margin-right: 20px;
+  color: black;
+}
+
+.botones {
+  cursor: pointer;
+  font-weight: 700;
+  font-family: Helvetica,"sans-serif";
+  transition: all .2s;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: #008080;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.botones:hover {
+  background: #02a5a5;
+}
+
+.botones > .svg_atrs {
+  width: 34px;
+  margin-right: 10px;
+  transition: transform .3s ease-in-out;
+  rotate: 180deg;
+}
+
+.botones:hover .svg_atrs {
+  transform: translateX(5px);
+}
+
+.botones > .svg_cont {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform .3s ease-in-out;
+}
+
+.botones:hover .svg_cont {
+  transform: translateX(5px);
+}
+.botones:active {
+  transform: scale(0.95);
+}
+

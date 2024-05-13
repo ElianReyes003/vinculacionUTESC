@@ -1,0 +1,113 @@
+CREATE TABLE `apoyo` (
+  `pk_apoyo` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_apoyo` text NOT NULL,
+  `estatus` smallint(6) NOT NULL
+);
+
+CREATE TABLE `modal` (
+  `pk_modal` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_modal` text  NOT NULL,
+  `estatus` smallint(6) NOT NULL
+);
+
+CREATE TABLE `pais` (
+  `pk_pais` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_pais` text NOT NULL
+);
+
+CREATE TABLE `zona` (
+  `pk_zona` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `influencia` text  NOT NULL
+);
+
+CREATE TABLE `carrera` (
+  `pk_carrera` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_carrera` text NOT NULL,
+  `estatus` smallint(6) NOT NULL
+);
+
+CREATE TABLE `empresa` (
+  `pk_empresa` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_empresa` text  NOT NULL,
+  `foto` text NOT NULL,
+  `descripcion` text NOT NULL,
+  `cantidad_empleados` int(10) NOT NULL,
+  `fk_modal` smallint(6) NOT NULL,
+  `estatus` smallint(6) NOT NULL,
+  FOREIGN KEY (fk_modal) REFERENCES modal(pk_modal)
+);
+
+CREATE TABLE `apoyo_emp` (
+  `pk_apoyo_emp` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `fk_apoyo` smallint(6) NOT NULL,
+  `fk_empresa` smallint(6) NOT NULL,
+   FOREIGN KEY (fk_apoyo) REFERENCES apoyo(pk_apoyo),
+   FOREIGN KEY (fk_empresa) REFERENCES empresa(pk_empresa)
+);
+
+CREATE TABLE `contacto` (
+  `pk_contacto` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_contacto` text NOT NULL,
+  `telefono` varchar(30) NOT NULL,
+  `correo` text  NOT NULL,
+  `cargo` text NOT NULL,
+  `fk_empresa` smallint(6) NOT NULL,
+  `estatus` smallint(6) NOT NULL,
+    FOREIGN KEY (fk_empresa) REFERENCES empresa(pk_empresa)
+);
+
+
+CREATE TABLE `convenio` (
+  `pk_convenio` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `inicio_convenio` date NOT NULL,
+  `final_convenio` date NOT NULL,
+  `fk_empresa` smallint(6) NOT NULL,
+  `estatus` smallint(6) NOT NULL,
+    FOREIGN KEY (fk_empresa) REFERENCES empresa(pk_empresa)
+);
+
+
+CREATE TABLE `empresa_carrera` (
+  `pk_empresa_carrera` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `fk_empresa` smallint(6) NOT NULL,
+  `fk_carrera` smallint(6) NOT NULL,
+  `estatus` smallint(6) NOT NULL,
+  FOREIGN KEY (fk_empresa) REFERENCES empresa(pk_empresa),
+   FOREIGN KEY (fk_carrera) REFERENCES carrera(pk_carrera)
+);
+
+
+CREATE TABLE `estado` (
+  `pk_estado` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_estado` text  NOT NULL,
+  `fk_pais` smallint(6)  NOT NULL,
+   FOREIGN KEY (fk_pais) REFERENCES pais(pk_pais)
+);
+
+CREATE TABLE `municipio` (
+  `pk_municipio` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_estado` text  NOT NULL,
+   `fk_estado` smallint(6)  NOT NULL,
+   FOREIGN KEY (fk_estado) REFERENCES estado(pk_estado)
+);
+
+
+CREATE TABLE `ciudad` (
+  `pk_ciudad` smallint(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre_ciudad` text NOT NULL,
+  `calle` text NOT NULL,
+  `fk_pais` smallint(6) NOT NULL,
+  `fk_estado` smallint(6) NOT NULL,
+  `fk_empresa` smallint(6) NOT NULL,
+  `fk_municipio` smallint(6) NOT NULL,
+  `fk_zona` smallint(6) NOT NULL,
+  `estatus` smallint(6) NOT NULL,
+   FOREIGN KEY (fk_pais) REFERENCES pais(pk_pais),
+   FOREIGN KEY (fk_estado) REFERENCES estado(pk_estado),
+   FOREIGN KEY (fk_empresa) REFERENCES empresa(pk_empresa),
+   FOREIGN KEY (fk_zona) REFERENCES zona(pk_zona)
+);
+
+
+
+
