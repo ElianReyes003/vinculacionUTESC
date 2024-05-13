@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2023 a las 16:46:37
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 14-05-2024 a las 00:12:51
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,16 +64,6 @@ CREATE TABLE `apoyo_emp` (
   `fk_empresa` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `apoyo_emp`
---
-
-INSERT INTO `apoyo_emp` (`pk_apoyo_emp`, `fk_apoyo`, `fk_empresa`) VALUES
-(15, 1, 1),
-(17, 3, 2),
-(18, 3, 3),
-(21, 3, 4);
-
 -- --------------------------------------------------------
 
 --
@@ -119,16 +109,6 @@ CREATE TABLE `ciudad` (
   `estatus` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `ciudad`
---
-
-INSERT INTO `ciudad` (`pk_ciudad`, `nombre_ciudad`, `calle`, `fk_pais`, `fk_estado`, `fk_empresa`, `fk_municipio`, `fk_zona`, `estatus`) VALUES
-(1, 'Mazatlán', 'Puerto Mazatlán 4, Parque Industrial Alfredo V. Bonfil, 82059 ', 42, 25, 1, 25012, 1, 1),
-(2, 'Escuinapa', 'Camino Al Gausimal s/n Al Noroeste de, Zona Ejidal, 82400 Escuinapa, Sin.', 42, 25, 2, 25009, 1, 1),
-(3, 'Mazatlán', '18900, Blvd. Luis Donaldo Colosio Murrieta, Urías, 82159 Mazatlán, Sin.', 42, 25, 3, 25012, 1, 0),
-(4, 'Culiacan', 'Libramiento Benito Juárez 6301,17, PARQUE INDUSTRIAL LAS COSTA, 80130, Culiacán Rosales, Sin.', 42, 25, 4, 25006, 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -145,16 +125,6 @@ CREATE TABLE `contacto` (
   `estatus` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `contacto`
---
-
-INSERT INTO `contacto` (`pk_contacto`, `nombre_contacto`, `telefono`, `correo`, `cargo`, `fk_empresa`, `estatus`) VALUES
-(1, 'Ing. Alberto Martinez', '669 258 5498', 'albertomar@gmail.com', 'Recursos Humanos', 1, 1),
-(2, 'Pavel', '6951018990', 'pavel123@gmail.com', 'Recursos Humanos', 2, 1),
-(3, 'Contacto 2', '6951197968', 'contact_bimbo@gmail.com', 'Recursos Humanos', 3, 0),
-(4, 'Jesus Ochoa', '8978484848', 'jesus_o@gmail.com', 'Recursos Humanos', 4, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -168,16 +138,6 @@ CREATE TABLE `convenio` (
   `fk_empresa` smallint(6) NOT NULL,
   `estatus` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `convenio`
---
-
-INSERT INTO `convenio` (`pk_convenio`, `inicio_convenio`, `final_convenio`, `fk_empresa`, `estatus`) VALUES
-(1, '2023-11-02', '2023-11-05', 1, 1),
-(2, '2023-11-03', '2023-11-06', 2, 0),
-(3, '2023-11-07', '2024-01-10', 3, 0),
-(4, '2023-11-23', '2024-02-02', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -196,16 +156,6 @@ CREATE TABLE `empresa` (
   `estatus` smallint(6) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `empresa`
---
-
-INSERT INTO `empresa` (`pk_empresa`, `nombre_empresa`, `foto`, `descripcion`, `cantidad_empleados`, `fk_modal`, `rfc`, `estatus`) VALUES
-(1, 'RedPetroil', '../img/RedPetroil.png', 'Red más grande de gasolineras en el estado de Sinaloa, con presencia en el norte y centro del país. ', 350, 2, '15151', 1),
-(2, 'ut', '../img/ut.png', 'Universidad tecnologica de escuinapa, la universidad mas impotante del sur de sinalona y norte de nayarit', 80, 1, 'jidvndfnvdf', 1),
-(3, 'Bimbo', '../img/Bimbo.png', 'Bimbo', 50, 1, '', 0),
-(4, 'Coppel Culiacan', '../img/Coppel Culiacan.png', 'Coppel culiacan', 250, 1, 'vvd8vd88dvd8vd', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -218,18 +168,6 @@ CREATE TABLE `empresa_carrera` (
   `fk_carrera` smallint(6) NOT NULL,
   `estatus` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `empresa_carrera`
---
-
-INSERT INTO `empresa_carrera` (`pk_empresa_carrera`, `fk_empresa`, `fk_carrera`, `estatus`) VALUES
-(30, 1, 7, 1),
-(33, 2, 4, 1),
-(34, 2, 7, 1),
-(35, 3, 6, 0),
-(36, 4, 4, 1),
-(37, 4, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -5139,7 +5077,7 @@ ALTER TABLE `apoyo`
 -- AUTO_INCREMENT de la tabla `apoyo_emp`
 --
 ALTER TABLE `apoyo_emp`
-  MODIFY `pk_apoyo_emp` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `pk_apoyo_emp` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `carrera`
@@ -5151,31 +5089,31 @@ ALTER TABLE `carrera`
 -- AUTO_INCREMENT de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  MODIFY `pk_ciudad` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_ciudad` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `pk_contacto` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_contacto` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `convenio`
 --
 ALTER TABLE `convenio`
-  MODIFY `pk_convenio` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_convenio` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `pk_empresa` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_empresa` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa_carrera`
 --
 ALTER TABLE `empresa_carrera`
-  MODIFY `pk_empresa_carrera` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `pk_empresa_carrera` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
